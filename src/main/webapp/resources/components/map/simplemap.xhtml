@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:composite="http://java.sun.com/jsf/composite">
+
+<!-- INTERFACE -->
+<composite:interface>
+  <composite:attribute name="zoomLevel" />
+  <composite:attribute name="city" />
+</composite:interface>
+
+<!-- IMPLEMENTATION -->
+<composite:implementation>
+  <div style="border: 1px red solid; width: 300px; height: 250px; padding: 20px">
+  <p>Zoom level: #{cc.attrs.zoomLevel}</p>
+  <p>City: #{cc.attrs.city}</p>
+  </div>
+</composite:implementation>
+</html>
