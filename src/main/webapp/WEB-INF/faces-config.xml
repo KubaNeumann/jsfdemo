@@ -14,5 +14,12 @@
 			<base-name>com.example.jsfdemo.messages</base-name>
 			<var>msg</var>
 		</resource-bundle>
+
+		<locale-config>
+			<default-locale>pl</default-locale>
+			<supported-locale>pl</supported-locale>
+			<supported-locale>en</supported-locale>
+		</locale-config>
+		
 	</application>
 </faces-config>
