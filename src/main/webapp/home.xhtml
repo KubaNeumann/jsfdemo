@@ -5,22 +5,6 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	template="/templates/default.xhtml">
 	<ui:define name="content">
-
-		<h:form id="personform">
-		
-			<h:panelGrid columns="2">
-				<h:outputText value="#{msg.personNameLabel}" />
-				<h:inputText id="name" value="#{personBean.person.name}" />
-				<h:outputText value="#{msg.personYobLabel}" />
-				<h:inputText id="yob" value="#{personBean.person.yob}" />
-
-				<h:commandButton value="#{msg.personFormOKButton}" />
-			</h:panelGrid>
-
-			<h:panelGrid>
-				<h:messages showDetail="#{true}" showSummary="#{false}" />
-			</h:panelGrid>
-		</h:form>
-		 
+		<p>#{msg.applicationInfo}</p>
 	</ui:define>
 </ui:composition>

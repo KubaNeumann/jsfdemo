@@ -1,5 +1,6 @@
 package com.example.jsfdemo.domain;
 
+import javax.validation.constraints.Min;
 
 public class Person {
 	
@@ -12,6 +13,8 @@ public class Person {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	@Min(value=1900)
 	public int getYob() {
 		return yob;
 	}

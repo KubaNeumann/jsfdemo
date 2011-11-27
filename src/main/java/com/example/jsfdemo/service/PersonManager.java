@@ -4,12 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Named;
 
 import com.example.jsfdemo.domain.Person;
 
 @ApplicationScoped
-@Named
 public class PersonManager {
 	private List<Person> db = new ArrayList<Person>();
 	
