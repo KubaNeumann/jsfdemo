@@ -6,7 +6,9 @@
 	template="/templates/default.xhtml">
 	
 	<ui:define name="content">
-     
+	
+    <h:form>
+      
      <h:dataTable value="#{personBean.allPersons}" var="item">
       <f:facet name="header">#{msg.personAllLabel}</f:facet>
       
@@ -20,11 +22,15 @@
         #{item.yob}
       </h:column>
       
+      <h:column>
+        <f:facet name="header">#{msg.action}</f:facet>
+        <h:commandLink value="#{msg.actionDelete}" action="#{personBean.deletePerson}"/>
+      </h:column>
+      
      </h:dataTable>
       
-     <h:form>
-        <h:commandLink value="#{msg.personAddLabel}" action="add" />
-     </h:form>
+     <h:commandLink value="#{msg.personAddLabel}" action="add" />
+    </h:form>
       
 	</ui:define>
 	

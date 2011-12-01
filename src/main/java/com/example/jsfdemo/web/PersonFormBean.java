@@ -1,9 +1,9 @@
 package com.example.jsfdemo.web;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.enterprise.context.SessionScoped;
+import javax.faces.model.ListDataModel;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -18,6 +18,8 @@ public class PersonFormBean implements Serializable {
 	
 	private Person person = new Person();
 	
+	private ListDataModel<Person> persons = new ListDataModel<Person>();
+	
 	@Inject
 	private PersonManager pm;
 	
@@ -28,16 +30,21 @@ public class PersonFormBean implements Serializable {
 		this.person = person;
 	}
 	
-	public List<Person> getAllPersons(){
-		return pm.getAllPerson();
+	public ListDataModel<Person> getAllPersons(){
+		persons.setWrappedData(pm.getAllPerson());
+		return persons;
 	}
 	
 	// Actions
 	public String addPerson(){
-		
 		pm.addPerson(person);
-		
 		return "showPersons";
+	}
+	
+	public String deletePerson(){
+		Person personToDelete = persons.getRowData();
+		pm.deletePerson(personToDelete);
+		return null;
 	}
 }
 
