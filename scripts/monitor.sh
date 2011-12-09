@@ -14,8 +14,8 @@ do
 	current_date=`get_latest_file_timestamp` 
 	if [ "$current_date" != "$old_date" ] ; then
 		echo 'Filesystem changed, invoking rebuild script'
+		old_date=$current_date
 		$REBUILD_SCRIPT
-		old_date=`get_latest_file_timestamp`
 	fi
 	sleep $BREAK_TIME 
 done
