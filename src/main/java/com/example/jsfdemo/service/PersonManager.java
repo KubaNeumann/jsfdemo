@@ -13,29 +13,32 @@ public class PersonManager {
 
 	public void addPerson(Person person) {
 		Person newPerson = new Person();
-		newPerson.setName(person.getName());
-		newPerson.setYob(person.getYob());
+
+		newPerson.setFirstName(person.getFirstName());
+		newPerson.setZipCode(person.getZipCode());
+		newPerson.setPin(person.getPin());
+		newPerson.setDateOfBirth(person.getDateOfBirth());
+		newPerson.setMarried(person.isMarried());
+		newPerson.setWeight(person.getWeight());
+		newPerson.setNumOfChildren(person.getNumOfChildren());
+
 		db.add(newPerson);
 	}
 
-	// Removes the first person with given name and yob
+	// Removes the person with given PIN
 	public void deletePerson(Person person) {
-
 		Person personToRemove = null;
-
 		for (Person p : db) {
-			if (person.getName().equals(p.getName())
-					&& person.getYob() == p.getYob()) {
+			if (person.getPin().equals(p.getPin())) {
 				personToRemove = p;
 				break;
 			}
 		}
-
 		if (personToRemove != null)
 			db.remove(personToRemove);
 	}
 
-	public List<Person> getAllPerson() {
+	public List<Person> getAllPersons() {
 		return db;
 	}
 }

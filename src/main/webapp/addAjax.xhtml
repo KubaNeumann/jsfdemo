@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+	<ui:define name="content">
+
+		<h:form id="personForm">
+			<h:panelGrid columns="2">
+
+				<h:outputText value="#{msg.personFirstNameLabel}" />
+				<h:inputText id="firstName" value="#{personBean.person.firstName}"
+					required="#{true}" />
+
+				<h:outputText value="#{msg.personPinLabel}" />
+				<h:inputText id="pin" value="#{personBean.person.pin}"
+					validator="#{personBean.uniquePin}" required="#{true}">
+					<f:validator validatorId="pinValidator" />
+					<f:ajax execute="@this" render="messages beanState" />
+				</h:inputText>
+
+				<h:outputText value="#{msg.personDobLabel}" />
+				<h:inputText id="dob" value="#{personBean.person.dateOfBirth}">
+					<f:convertDateTime type="date" pattern="dd.MM.yyyy" />
+				</h:inputText>
+
+				<h:outputText value="#{msg.personZipCodeLabel}" />
+				<h:inputText id="zipCode" value="#{personBean.person.zipCode}" />
+
+				<h:outputText value="#{msg.personWeightLabel}" />
+				<h:inputText id="weight" value="#{personBean.person.weight}">
+					<f:validateDoubleRange minimum="20.5" maximum="150.5" />
+					<f:ajax execute="@this" render="messages beanState" />
+				</h:inputText>
+
+				<h:outputText value="#{msg.personNumOfChildrenLabel}" />
+				<h:inputText id="noc" value="#{personBean.person.numOfChildren}">
+
+				</h:inputText>
+
+			</h:panelGrid>
+
+			<h:commandButton value="#{msg.personFormOKButton}"
+				action="#{personBean.addPerson}" />
+
+
+			<h:panelGrid>
+				<h:messages id="messages" showDetail="#{true}"
+					showSummary="#{false}" />
+			</h:panelGrid>
+
+			<h:panelGrid id="beanState" columns="2">
+				<h:outputText value="#{msg.personFirstNameLabel}" />
+				<h:outputText id="nameOutput" value="#{personBean.person.firstName}" />
+
+				<h:outputText value="#{msg.personPinLabel}" />
+				<h:outputText id="pinOutput" value="#{personBean.person.pin}" />
+
+				<h:outputText value="#{msg.personDobLabel}" />
+				<h:outputText id="dobOutput"
+					value="#{personBean.person.dateOfBirth}" />
+			</h:panelGrid>
+
+		</h:form>
+	</ui:define>
+</ui:composition>

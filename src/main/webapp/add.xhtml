@@ -7,17 +7,27 @@
 	<ui:define name="content">
 		<h:form id="personform">
 			<h:panelGrid columns="2">
-				<h:outputText value="#{msg.personNameLabel}" />
-				<h:inputText id="name" value="#{personBean.person.name}" />
-				<h:outputText value="#{msg.personYobLabel}" />
-				<h:inputText id="yob" value="#{personBean.person.yob}" />
 
-				<h:commandButton value="#{msg.personFormOKButton}"
-					action="#{personBean.addPerson}" />
-			</h:panelGrid>
+				<h:outputText value="Add Person with very simple form" />
+				<h:commandLink action="addSimple?faces-redirect=true">
+					<h:outputText value=" Add person " />
+				</h:commandLink>
 
-			<h:panelGrid>
-				<h:messages showDetail="#{true}" showSummary="#{false}" />
+				<h:outputText value="Add Person with some validators" />
+				<h:commandLink action="addValidation?faces-redirect=true">
+					<h:outputText value=" Add person " />
+				</h:commandLink>
+
+				<h:outputText value="Add Person with JSF 2.0 ajax support" />
+				<h:commandLink action="addAjax?faces-redirect=true">
+					<h:outputText value=" Add person " />
+				</h:commandLink>
+
+				<h:outputText value="Add Person with RichFaces support" />
+				<h:commandLink action="addRF?faces-redirect=true">
+					<h:outputText value=" Add person " />
+				</h:commandLink>
+
 			</h:panelGrid>
 		</h:form>
 	</ui:define>

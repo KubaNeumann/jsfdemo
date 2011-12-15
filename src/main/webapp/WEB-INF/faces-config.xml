@@ -6,20 +6,19 @@
       http://java.sun.com/xml/ns/javaee
       http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
 
-	<!-- Write your navigation rules here. You should use CDI for creating @Named 
-		managed beans! -->
-
 	<application>
 		<resource-bundle>
 			<base-name>com.example.jsfdemo.messages</base-name>
 			<var>msg</var>
 		</resource-bundle>
 
+		<message-bundle>com.example.jsfdemo.errormessages</message-bundle>
+
 		<locale-config>
 			<default-locale>pl</default-locale>
 			<supported-locale>pl</supported-locale>
 			<supported-locale>en</supported-locale>
 		</locale-config>
-		
+
 	</application>
 </faces-config>

@@ -8,18 +8,18 @@
 	<ui:define name="content">
 	
     <h:form>
-      
+    
      <h:dataTable value="#{personBean.allPersons}" var="item">
       <f:facet name="header">#{msg.personAllLabel}</f:facet>
       
       <h:column>
-        <f:facet name="header">#{msg.personNameLabel}</f:facet>
-        #{item.name}
+        <f:facet name="header">#{msg.personFirstNameLabel}</f:facet>
+        #{item.firstName}
       </h:column>
       
       <h:column>
-        <f:facet name="header">#{msg.personYobLabel}</f:facet>
-        #{item.yob}
+        <f:facet name="header">#{msg.personPinLabel}</f:facet>
+        #{item.pin}
       </h:column>
       
       <h:column>
@@ -28,8 +28,6 @@
       </h:column>
       
      </h:dataTable>
-      
-     <h:commandLink value="#{msg.personAddLabel}" action="add" />
     </h:form>
       
 	</ui:define>
